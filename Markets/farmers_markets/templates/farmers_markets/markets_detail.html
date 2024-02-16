@@ -1,0 +1,19 @@
+{% extends "farmers_markets/base_generic.html" %}
+
+{% block content %}
+  <h1>Name: {{ markets.market_name }}</h1>
+  <p><strong>Street:</strong> {{ markets.street }}</p>
+  <p><strong>City:</strong> {{ markets.city.city }}</p>
+  <p><strong>State:</strong> {{ markets.state.state_full }}</p>
+  <p><strong>ZIP:</strong> {{ markets.zip }}</p>
+  <p><strong>Latitude:</strong> {{ markets.lat }}</p>
+  <p><strong>Longitude:</strong> {{ markets.lon }}</p>
+
+  <h4>Categories</h4>
+  <div style="margin-left:20px;margin-top:20px">
+    {% for category in markets.categories.all %}
+      <hr />
+      <p>{{ category.category }}</p>
+    {% endfor %}
+  </div>
+{% endblock %}

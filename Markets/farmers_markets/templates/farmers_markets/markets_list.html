@@ -1,0 +1,17 @@
+{% extends "farmers_markets/base_generic.html" %}
+
+{% block content %}
+  <h1>Markets List</h1>
+  {% if markets_list %}
+    <ul>
+      {% for market in markets_list %}
+      <li>
+        <a href="{{ market.get_absolute_url }}">{{ market.market_name }}</a>
+        ({{market.lat}}, {{market.lon}})
+      </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>There are no farmer markets in the database.</p>
+  {% endif %}
+{% endblock %}
